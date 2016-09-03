@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1534F76C54AA3C58D1779166 /* Pods_OhmsLawsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */; };
+		177FC832CE46DF29751EB098 /* Pods_OhmsLaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */; };
 		BA435E841D7AF7C9009F23C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */; };
 		BA435E861D7AF7C9009F23C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA435E851D7AF7C9009F23C4 /* ViewController.swift */; };
 		BA435E891D7AF7C9009F23C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA435E871D7AF7C9009F23C4 /* Main.storyboard */; };
 		BA435E8B1D7AF7C9009F23C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA435E8A1D7AF7C9009F23C4 /* Assets.xcassets */; };
 		BA435E8E1D7AF7C9009F23C4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA435E8C1D7AF7C9009F23C4 /* LaunchScreen.storyboard */; };
 		BA435E991D7AF7C9009F23C4 /* OhmsLawsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA435E981D7AF7C9009F23C4 /* OhmsLawsTests.swift */; };
+		BA435EA41D7AF9E3009F23C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +29,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		08BB9343574E5C5D53702C9F /* Pods-OhmsLawsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLawsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests.release.xcconfig"; sourceTree = "<group>"; };
+		24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmsLawsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		378D28AC3129A5108A7C15C0 /* Pods-OhmsLaws.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLaws.release.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws.release.xcconfig"; sourceTree = "<group>"; };
+		5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmsLaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70331A537EE0B4184EC3773F /* Pods-OhmsLawsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLawsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		88140E1C1A3F82DEEF9C0BFC /* Pods-OhmsLaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLaws.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws.debug.xcconfig"; sourceTree = "<group>"; };
 		BA435E801D7AF7C9009F23C4 /* OhmsLaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhmsLaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA435E851D7AF7C9009F23C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +45,7 @@
 		BA435E941D7AF7C9009F23C4 /* OhmsLawsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OhmsLawsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA435E981D7AF7C9009F23C4 /* OhmsLawsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OhmsLawsTests.swift; sourceTree = "<group>"; };
 		BA435E9A1D7AF7C9009F23C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				177FC832CE46DF29751EB098 /* Pods_OhmsLaws.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +61,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1534F76C54AA3C58D1779166 /* Pods_OhmsLawsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19307B136465B30E7862209E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */,
+				24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		218A9DB8DF2AD3A97D3F9A1A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				88140E1C1A3F82DEEF9C0BFC /* Pods-OhmsLaws.debug.xcconfig */,
+				378D28AC3129A5108A7C15C0 /* Pods-OhmsLaws.release.xcconfig */,
+				70331A537EE0B4184EC3773F /* Pods-OhmsLawsTests.debug.xcconfig */,
+				08BB9343574E5C5D53702C9F /* Pods-OhmsLawsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		BA435E771D7AF7C9009F23C4 = {
 			isa = PBXGroup;
 			children = (
 				BA435E821D7AF7C9009F23C4 /* OhmsLaws */,
 				BA435E971D7AF7C9009F23C4 /* OhmsLawsTests */,
 				BA435E811D7AF7C9009F23C4 /* Products */,
+				218A9DB8DF2AD3A97D3F9A1A /* Pods */,
+				19307B136465B30E7862209E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,6 +111,7 @@
 		BA435E821D7AF7C9009F23C4 /* OhmsLaws */ = {
 			isa = PBXGroup;
 			children = (
+				BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */,
 				BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */,
 				BA435E851D7AF7C9009F23C4 /* ViewController.swift */,
 				BA435E871D7AF7C9009F23C4 /* Main.storyboard */,
@@ -103,9 +138,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA435E9D1D7AF7C9009F23C4 /* Build configuration list for PBXNativeTarget "OhmsLaws" */;
 			buildPhases = (
+				06CAEED6026AACB198E1AA23 /* [CP] Check Pods Manifest.lock */,
 				BA435E7C1D7AF7C9009F23C4 /* Sources */,
 				BA435E7D1D7AF7C9009F23C4 /* Frameworks */,
 				BA435E7E1D7AF7C9009F23C4 /* Resources */,
+				E9F86B651E0ECA8C6426C0DB /* [CP] Embed Pods Frameworks */,
+				CD7348B7D9E431A92977C3AF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +158,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BA435EA01D7AF7C9009F23C4 /* Build configuration list for PBXNativeTarget "OhmsLawsTests" */;
 			buildPhases = (
+				A4B8923C85D12B19215EB75D /* [CP] Check Pods Manifest.lock */,
 				BA435E901D7AF7C9009F23C4 /* Sources */,
 				BA435E911D7AF7C9009F23C4 /* Frameworks */,
 				BA435E921D7AF7C9009F23C4 /* Resources */,
+				F466F08E554D3439DCB9F5E4 /* [CP] Embed Pods Frameworks */,
+				39B2467D3EC97FBE25B8511E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -182,6 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA435E8E1D7AF7C9009F23C4 /* LaunchScreen.storyboard in Resources */,
+				BA435EA41D7AF9E3009F23C4 /* GoogleService-Info.plist in Resources */,
 				BA435E8B1D7AF7C9009F23C4 /* Assets.xcassets in Resources */,
 				BA435E891D7AF7C9009F23C4 /* Main.storyboard in Resources */,
 			);
@@ -195,6 +237,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06CAEED6026AACB198E1AA23 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		39B2467D3EC97FBE25B8511E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A4B8923C85D12B19215EB75D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		CD7348B7D9E431A92977C3AF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9F86B651E0ECA8C6426C0DB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F466F08E554D3439DCB9F5E4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BA435E7C1D7AF7C9009F23C4 /* Sources */ = {
@@ -339,10 +474,12 @@
 		};
 		BA435E9E1D7AF7C9009F23C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88140E1C1A3F82DEEF9C0BFC /* Pods-OhmsLaws.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M77G4VQ69B;
 				INFOPLIST_FILE = OhmsLaws/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewcurtner.OhmsLaws;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -352,10 +489,12 @@
 		};
 		BA435E9F1D7AF7C9009F23C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 378D28AC3129A5108A7C15C0 /* Pods-OhmsLaws.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = M77G4VQ69B;
 				INFOPLIST_FILE = OhmsLaws/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewcurtner.OhmsLaws;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -365,6 +504,7 @@
 		};
 		BA435EA11D7AF7C9009F23C4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 70331A537EE0B4184EC3773F /* Pods-OhmsLawsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -380,6 +520,7 @@
 		};
 		BA435EA21D7AF7C9009F23C4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 08BB9343574E5C5D53702C9F /* Pods-OhmsLawsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -412,6 +553,7 @@
 				BA435E9F1D7AF7C9009F23C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA435EA01D7AF7C9009F23C4 /* Build configuration list for PBXNativeTarget "OhmsLawsTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +562,7 @@
 				BA435EA21D7AF7C9009F23C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
