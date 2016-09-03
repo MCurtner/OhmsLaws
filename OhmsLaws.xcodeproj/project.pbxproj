@@ -111,13 +111,13 @@
 		BA435E821D7AF7C9009F23C4 /* OhmsLaws */ = {
 			isa = PBXGroup;
 			children = (
-				BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */,
+				BA435E8A1D7AF7C9009F23C4 /* Assets.xcassets */,
 				BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */,
 				BA435E851D7AF7C9009F23C4 /* ViewController.swift */,
 				BA435E871D7AF7C9009F23C4 /* Main.storyboard */,
-				BA435E8A1D7AF7C9009F23C4 /* Assets.xcassets */,
 				BA435E8C1D7AF7C9009F23C4 /* LaunchScreen.storyboard */,
 				BA435E8F1D7AF7C9009F23C4 /* Info.plist */,
+				BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */,
 			);
 			path = OhmsLaws;
 			sourceTree = "<group>";

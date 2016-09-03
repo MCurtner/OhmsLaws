@@ -11,6 +11,8 @@ import XCTest
 
 class OhmsLawsTests: XCTestCase {
     
+    let vc = ViewController()
+    
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -21,11 +23,6 @@ class OhmsLawsTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
     func testPerformanceExample() {
         // This is an example of a performance test case.
         self.measure {
@@ -33,4 +30,18 @@ class OhmsLawsTests: XCTestCase {
         }
     }
     
+    
+    func testCalcVoltage() {
+        XCTAssertEqual(vc.calculateVoltage(amp: 10, resistance: 150), 1500.0)
+        XCTAssertEqual(vc.calculateVoltage(amps: 10, power: 2), 0.2)
+        XCTAssertEqual(vc.calculateVoltage(power: 2, resistance: 10), 4.47214)
+    }
+    
+    func testAmps() {
+        XCTAssertEqual(vc.calculateAmps(voltage: 150, resistance: 10), 15.0)
+    }
+    
+    func testWatts() {
+        XCTAssertEqual(vc.calculateWatts(voltage: 150, resistance: 10), 2250.0)
+    }
 }
