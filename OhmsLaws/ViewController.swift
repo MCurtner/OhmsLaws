@@ -17,7 +17,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     @IBOutlet weak var powerTextField: UITextField!
     
     // Allowing for user defined rounding
-    let roundingNum: Int = 5
+    var roundingNum: Int!
     
     // Array to store the last 2 active textfield tag numbers
     // Initally set to [-1, -1]
@@ -25,7 +25,9 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         
    override func viewDidLoad() {
         super.viewDidLoad()
-
+    
+        createDefaults()
+    
         // Setting UITextField Delegate
         voltageTextField.delegate = self
         currentTextField.delegate = self
@@ -34,10 +36,38 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
         // Display adMob Banner
         displayBanner()
+    
+        // Read the default values
+        readUserValues()
     }
-
+    
+    /// Create the Default values
+    func createDefaults() {
+        let defaults = UserDefaults.standard
+        
+        if defaults.object(forKey: "RoundTo") == nil {
+            //print("Key was nil Setting Default Rounding Number")
+            defaults.set(4, forKey: "RoundTo")
+        }
+        if defaults.object(forKey: "ActiveColor") == nil {
+            //print("Setting Default Active Color")
+            defaults.setColor(value: UIColor.red, forKey: "ActiveColor")
+        }
+    }
+    
+    /// Read the User/Default values and set the roundingNum value
+    func readUserValues() {
+         let defaults = UserDefaults.standard
+        roundingNum = defaults.integer(forKey: "RoundTo")
+    }
+    
     // MARK: - Reset Button
-    @IBAction func resetBtnWasPressed(_ sender: AnyObject) {
+    /// Button to reset all fields to default of '0'.
+    /// Set the lastUsedArray to -1, -1
+    /// Set all text fields to non active
+    ///
+    /// - parameter sender: <#sender description#>
+    @IBAction func resetBtnWasPressed(_ sender: UIButton) {
         // Set all text field text to '0'
         voltageTextField.text = "0"
         currentTextField.text = "0"
@@ -337,12 +367,30 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
 }
 
 
-//MARK: - Round 'Double' value to desired decimal place
+// MARK: - Round 'Double' value to desired decimal place
 extension Double {
     /// Rounds the double to decimal places value
     func roundToPlaces(places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor
+    }
+}
+
+
+// MARK: - Extension to store and retrieve UIColor in UserDefaults
+extension UserDefaults {
+    func setColor(value: UIColor!, forKey: String) {
+        guard let value = value else {
+            UserDefaults().set(nil, forKey:  forKey)
+            return
+        }
+        UserDefaults().set(NSKeyedArchiver.archivedData(withRootObject: value), forKey: forKey)
+    }
+    func colorForKey(key:String) -> UIColor? {
+        guard let data = UserDefaults().data(forKey: key),
+            let color = NSKeyedUnarchiver.unarchiveObject(with: data) as? UIColor
+            else { return nil }
+        return color
     }
 }
 
