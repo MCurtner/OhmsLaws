@@ -60,6 +60,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
 
     // MARK: - Ad Banner
+    /// Setup and display the Banner Ad from AdMob.
     func displayBanner() {
         let request = GADRequest();
         request.testDevices = [kGADSimulatorID]
@@ -72,6 +73,11 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
     // MARK: - UITextField Delegate Methods
     
+    /// Necessary steps when user selects the UITectField.
+    /// 1. Add/Remove the UITextField Tag numbers to the lastUsedArray.
+    /// 2. Highlight the correct active fields
+    ///
+    /// - parameter textField: Selected UITextField
     func textFieldDidBeginEditing(_ textField: UITextField) {
         // Add selected text field tag numbers to the array
         addAndPopArrayValues(value: textField.tag)
@@ -83,6 +89,11 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         checkIfFieldTagIsActive(textField: powerTextField)
     }
     
+    /// Necessary steps when user deselects the UITectField.
+    /// 1. Check that the textfield is never nil or empty
+    /// 2. Execute calculate()
+    ///
+    /// - parameter textField: Selected UITextField
     func textFieldDidEndEditing(_ textField: UITextField) {
         // Check that the edited text field is not empty or nil
         // If so, set the value to '0'
@@ -101,13 +112,17 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
     // MARK: - Field Highlighting
     
-    // Set the border color and width for the active fields
+    /// Set the border color and border width for the test field
+    ///
+    /// - parameter textField: Current selected UITextField
     func colorizeActiveFields(textField: UITextField) {
         textField.layer.borderWidth = 2.0
         textField.layer.borderColor = UIColor.red.cgColor
     }
     
-    // Set the border color and width for the inactive fields
+    /// Set the border color and width for the inactive fields
+    ///
+    /// - parameter textField: Current selected UITextField
     func decolorizeTextFields(textField: UITextField) {
         // Set text field back to default color, border and corners
         textField.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
@@ -115,7 +130,9 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         textField.layer.cornerRadius = 5
     }
     
-    // Set the border color/width based on tag number
+    /// Colorize/Decolorize the border color/width based on tag number
+    ///
+    /// - parameter textField: Current selected UITextField
     func checkIfFieldTagIsActive(textField: UITextField) {
         if textField.tag == lastUsedArray[0] || textField.tag == lastUsedArray[1] {
             colorizeActiveFields(textField: textField)
@@ -126,7 +143,10 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
     
     // MARK: - Array Helper
-    // Add the UITextField Tag values into the array
+    /// Add the UITextField Tag values into the array.
+    /// If the array count is 2, pop the first index and append
+    /// new value.
+    /// - parameter value: Tag number of the UITextfield
     func addAndPopArrayValues(value: Int) {
         // Check if the array contains 2 or more elements
         // and if true, remove the first element, then append
@@ -144,7 +164,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
     
     // MARK: - Calculate
-    // Solve based on the active text fields
+    /// Solve based on the active text fields
     func calculate() {
         // Ensure array contains both tags
         if lastUsedArray.count > 1 {
@@ -190,55 +210,124 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
    
     // MARK: - Algorithms/Laws
     
-    // Voltage
+    // MARK: - Voltage
+    /// Calculate Voltage based on known Amp and Resistance values
+    ///
+    /// - parameter amp:        Double value of user input of Amp
+    /// - parameter resistance: Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Voltage value rounded to specifed decimal
     func calculateVoltage(amp: Double, resistance: Double) -> Double {
         return (resistance * amp).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Voltage based on known Amp and Watt values
+    ///
+    /// - parameter amps:  Double value of user input of Amp
+    /// - parameter power: Double value of user input of Watt
+    ///
+    /// - returns: Double value of Voltage value rounded to specifed decimal
     func calculateVoltage(amps: Double, power: Double) -> Double {
         return (power / amps).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Voltage based on known Watt and Resistance values
+    ///
+    /// - parameter power:      Double value of user input of Watt
+    /// - parameter resistance: Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Voltage value rounded to specifed decimal
     func calculateVoltage(power: Double, resistance: Double) -> Double {
-        print("\(sqrt(power * resistance).roundToPlaces(places: roundingNum))")
         return sqrt(power * resistance).roundToPlaces(places: roundingNum)
     }
     
-    // Amps
+    // MARK: - Amps
+    /// Calculate Amps based on known Voltage and Resistance values
+    ///
+    /// - parameter voltage:    Double value of user input of Voltage
+    /// - parameter resistance: Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Amps value rounded to specifed decimal
     func calculateAmps(voltage: Double, resistance: Double) -> Double {
         return (voltage / resistance).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Amps based on known Voltage and Watts values
+    ///
+    /// - parameter power:      Double value of user input of Watts
+    /// - parameter voltage:    Double value of user input of Voltage
+    ///
+    /// - returns: Double value of Amps value rounded to specifed decimal
     func calculateAmps(power: Double, voltage: Double) -> Double {
         return power / voltage
     }
     
+    /// Calculate Amps based on known Voltage and Amps values
+    ///
+    /// - parameter power:      Double value of user input of Voltage
+    /// - parameter resistance: Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Amps value rounded to specifed decimal
     func calculateAmps(power: Double, resistance: Double) -> Double {
         return sqrt(power / resistance).roundToPlaces(places: roundingNum)
     }
     
-    // Resistance
+    // MARK: - Resistance
+    /// Calculate Resistance based on known Voltage and Amps values
+    ///
+    /// - parameter voltage: Double value of user input of Voltage
+    /// - parameter amps:    Double value of user input of Amps
+    ///
+    /// - returns: Double value of Resistance value rounded to specifed decimal
     func calculateResistance(voltage: Double, amps: Double) -> Double {
         return (voltage / amps).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Resistance based on known Voltage and Watt values
+    ///
+    /// - parameter voltage: Double value of user input of Voltage
+    /// - parameter power:   Double value of user input of Watts
+    ///
+    /// - returns: Double value of Resistance value rounded to specifed decimal
     func calculateResistance(voltage: Double, power: Double) -> Double {
         return  (pow(voltage, 2.0) / power).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Resistance based on known Watts and Amps values
+    ///
+    /// - parameter power: Double value of user input of Watts
+    /// - parameter amps:  Double value of user input of Amps
+    ///
+    /// - returns: Double value of Resistance value rounded to specifed decimal
     func calculateResistance(power: Double, amps: Double) -> Double {
         return (power / pow(amps, 2.0)).roundToPlaces(places: roundingNum)
     }
     
-    // Watts
+    // MARK: - Watts
+    /// Calculate Watts based on known Voltage and Amps values
+    ///
+    /// - parameter voltage: Double value of user input of Voltage
+    /// - parameter amps:    Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Watt value rounded to specifed decimal
     func calculateWatts(voltage: Double, amps: Double) -> Double {
         return (voltage * amps).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Watts based on known Resistance and Amps values
+    /// - parameter resistance: Double value of user input of Resistance
+    /// - parameter amps:       Double value of user input of Amps
+    ///
+    /// - returns: Double value of Watts value rounded to specifed decimal
     func calculateWatts(resistance: Double, amps: Double) -> Double {
         return (resistance * pow(amps, 2.0)).roundToPlaces(places: roundingNum)
     }
     
+    /// Calculate Watts based on known Voltage and Resistance values
+    /// - parameter voltage:    Double value of user input of Voltage
+    /// - parameter resistance: Double value of user input of Resistance
+    ///
+    /// - returns: Double value of Watt value rounded to specifed decimal
     func calculateWatts(voltage: Double, resistance: Double) -> Double {
         return (pow(voltage, 2.0) / resistance).roundToPlaces(places: roundingNum)
     }
