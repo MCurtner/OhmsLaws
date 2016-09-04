@@ -11,11 +11,12 @@ import XCTest
 
 class OhmsLawsTests: XCTestCase {
     
-    let vc = ViewController()
+    var vc: ViewController!
     
     override func setUp() {
         super.setUp()
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        vc = ViewController()
     }
     
     override func tearDown() {
@@ -39,6 +40,7 @@ class OhmsLawsTests: XCTestCase {
     
     func testAmps() {
         XCTAssertEqual(vc.calculateAmps(voltage: 150, resistance: 10), 15.0)
+        XCTAssertEqual(vc.calculateAmps(voltage: 250, resistance: 44), 5.68182)
     }
     
     func testWatts() {

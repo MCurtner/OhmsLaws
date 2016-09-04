@@ -34,7 +34,6 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     
         // Display adMob Banner
         displayBanner()
-        
     }
 
     // MARK: - Reset Button
@@ -58,7 +57,11 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         checkIfFieldTagIsActive(textField: powerTextField)
     }
     
-
+    /// Set the UIStatusBarStyle to display the light color
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     // MARK: - Ad Banner
     /// Setup and display the Banner Ad from AdMob.
     func displayBanner() {
