@@ -15,7 +15,7 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ohms" translatesAutoresizingMaskIntoConstraints="NO" id="JNp-hK-e1U"/>
@@ -45,17 +45,17 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ezx-p3-rOP">
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aaf-y7-HcE">
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B6T-ze-Y1v">
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ohms" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CfX-4k-DUN">
@@ -80,7 +80,7 @@
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WxN-ta-wzA">
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRx-A0-M2g">
@@ -154,9 +154,48 @@
                         <viewControllerLayoutGuide type="bottom" id="gNE-Cd-G0e"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="d2e-VS-rcv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="LhN-tE-MLM"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="0" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Xg-9y-NOA">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="53" id="V3k-lF-0mP"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Decimal Places:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dkx-S7-0Rl">
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="0OK-Mg-yty"/>
+                                    <constraint firstAttribute="width" constant="122" id="Zbe-AE-5IY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-gt-VtI">
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Remove Ads"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="LhN-tE-MLM" firstAttribute="top" secondItem="d2e-VS-rcv" secondAttribute="top" id="3wp-Sp-APQ"/>
+                            <constraint firstItem="dkx-S7-0Rl" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="5DO-4I-mq1"/>
+                            <constraint firstItem="8aW-gt-VtI" firstAttribute="top" secondItem="dkx-S7-0Rl" secondAttribute="bottom" constant="63" id="7iB-Cx-Guj"/>
+                            <constraint firstAttribute="trailing" secondItem="LhN-tE-MLM" secondAttribute="trailing" id="MZC-dt-pkr"/>
+                            <constraint firstItem="3Xg-9y-NOA" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="PPl-dc-K1D"/>
+                            <constraint firstItem="gNE-Cd-G0e" firstAttribute="top" secondItem="LhN-tE-MLM" secondAttribute="bottom" id="Vut-5H-qVg"/>
+                            <constraint firstItem="3Xg-9y-NOA" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="66.5" id="Zao-1r-bfk"/>
+                            <constraint firstItem="8aW-gt-VtI" firstAttribute="leading" secondItem="dkx-S7-0Rl" secondAttribute="leading" id="dDE-pp-hyh"/>
+                            <constraint firstItem="LhN-tE-MLM" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leading" id="gNo-ik-nuo"/>
+                            <constraint firstItem="dkx-S7-0Rl" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="-32" id="sqJ-ul-IIN"/>
+                            <constraint firstItem="8aW-gt-VtI" firstAttribute="trailing" secondItem="3Xg-9y-NOA" secondAttribute="trailing" id="xCI-1z-jW9"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="B78-Z4-vk7">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="cJJ-9B-Q8F">
@@ -170,10 +209,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="roundingTextField" destination="3Xg-9y-NOA" id="ylo-Va-pei"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="afX-CV-buK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2758" y="0.0"/>
+            <point key="canvasLocation" x="2753.6231884057975" y="-2.4456521739130435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VTA-5G-2Yg">
@@ -195,6 +237,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Background" width="1536" height="2048"/>
         <image name="Ohms" width="1536" height="2048"/>
     </resources>
 </document>

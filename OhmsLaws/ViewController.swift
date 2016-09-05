@@ -41,6 +41,11 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         readUserValues()
     }
     
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        readUserValues()
+    }
+    
     /// Create the Default values
     func createDefaults() {
         let defaults = UserDefaults.standard
@@ -66,7 +71,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     /// Set the lastUsedArray to -1, -1
     /// Set all text fields to non active
     ///
-    /// - parameter sender: <#sender description#>
+    /// - parameter sender: UIButton
     @IBAction func resetBtnWasPressed(_ sender: UIButton) {
         // Set all text field text to '0'
         voltageTextField.text = "0"
