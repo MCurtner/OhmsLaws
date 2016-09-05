@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1164.375" y="1.056338028169014"/>
+            <point key="canvasLocation" x="1104" y="0.0"/>
         </scene>
         <!--Settings-->
         <scene sceneID="tYk-Mt-hmb">
@@ -172,7 +172,7 @@
                                     <constraint firstAttribute="width" constant="122" id="Zbe-AE-5IY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8aW-gt-VtI">
@@ -180,6 +180,22 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Remove Ads"/>
+                                <connections>
+                                    <action selector="removeAdsBtnWasPressed:" destination="Kqz-bW-2ji" eventType="touchUpInside" id="obm-1s-pFz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82q-ZI-2bU">
+                                <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="JUa-Nw-0SH"/>
+                                    <constraint firstAttribute="width" constant="186" id="YDH-GT-nR9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Restore Purchases"/>
+                                <connections>
+                                    <action selector="restorePurchases:" destination="Kqz-bW-2ji" eventType="touchUpInside" id="mnm-g8-tWS"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,10 +206,12 @@
                             <constraint firstAttribute="trailing" secondItem="LhN-tE-MLM" secondAttribute="trailing" id="MZC-dt-pkr"/>
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="PPl-dc-K1D"/>
                             <constraint firstItem="gNE-Cd-G0e" firstAttribute="top" secondItem="LhN-tE-MLM" secondAttribute="bottom" id="Vut-5H-qVg"/>
+                            <constraint firstItem="82q-ZI-2bU" firstAttribute="top" secondItem="8aW-gt-VtI" secondAttribute="bottom" constant="15" id="Wyv-lC-Uvg"/>
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="66.5" id="Zao-1r-bfk"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="leading" secondItem="dkx-S7-0Rl" secondAttribute="leading" id="dDE-pp-hyh"/>
                             <constraint firstItem="LhN-tE-MLM" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leading" id="gNo-ik-nuo"/>
                             <constraint firstItem="dkx-S7-0Rl" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="-32" id="sqJ-ul-IIN"/>
+                            <constraint firstItem="82q-ZI-2bU" firstAttribute="leading" secondItem="8aW-gt-VtI" secondAttribute="leading" id="u4K-uL-0d0"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="trailing" secondItem="3Xg-9y-NOA" secondAttribute="trailing" id="xCI-1z-jW9"/>
                         </constraints>
                     </view>
