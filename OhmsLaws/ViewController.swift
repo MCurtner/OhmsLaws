@@ -143,7 +143,14 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         calculate()
     }
     
-    // Dismiss keyboard when background touched
+    /// Allow only 1 decimal in text
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let number = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
+        return number || (string == NumberFormatter().decimalSeparator && textField.text?.contains(string) == false)
+    }
+
+
+    /// Dismiss keyboard when background touched
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
@@ -371,7 +378,6 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     }
 }
 
-
 // MARK: - Round 'Double' value to desired decimal place
 extension Double {
     /// Rounds the double to decimal places value
@@ -380,7 +386,6 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 }
-
 
 // MARK: - Extension to store and retrieve UIColor in UserDefaults
 extension UserDefaults {

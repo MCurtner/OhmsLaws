@@ -28,10 +28,10 @@ class SettingVC: UIViewController, UITextFieldDelegate {
         roundingTextField.text = "\(roundingDigit!)"
         
         // Re
-        requestProductData()
+        //requestProductData()
         
         // Register with delegate
-        SKPaymentQueue.default().add(self)
+        // SKPaymentQueue.default().add(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
