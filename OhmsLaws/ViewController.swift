@@ -46,6 +46,11 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         readUserValues()
     }
     
+    /// Set the UIStatusBarStyle to display the light color
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     /// Create the Default values
     func createDefaults() {
         let defaults = UserDefaults.standard
@@ -92,10 +97,6 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         checkIfFieldTagIsActive(textField: powerTextField)
     }
     
-    /// Set the UIStatusBarStyle to display the light color
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
     
     // MARK: - Ad Banner
     /// Setup and display the Banner Ad from AdMob.
