@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11198.2" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -184,7 +184,7 @@
                                     <action selector="removeAdsBtnWasPressed:" destination="Kqz-bW-2ji" eventType="touchUpInside" id="obm-1s-pFz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82q-ZI-2bU">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="82q-ZI-2bU">
                                 <color key="backgroundColor" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="JUa-Nw-0SH"/>
@@ -197,12 +197,14 @@
                                     <action selector="restorePurchases:" destination="Kqz-bW-2ji" eventType="touchUpInside" id="mnm-g8-tWS"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="SXk-Iq-hvQ"/>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LhN-tE-MLM" firstAttribute="top" secondItem="d2e-VS-rcv" secondAttribute="top" id="3wp-Sp-APQ"/>
                             <constraint firstItem="dkx-S7-0Rl" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="5DO-4I-mq1"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="top" secondItem="dkx-S7-0Rl" secondAttribute="bottom" constant="63" id="7iB-Cx-Guj"/>
+                            <constraint firstItem="SXk-Iq-hvQ" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leadingMargin" constant="60" id="KcX-RY-V4f"/>
                             <constraint firstAttribute="trailing" secondItem="LhN-tE-MLM" secondAttribute="trailing" id="MZC-dt-pkr"/>
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="PPl-dc-K1D"/>
                             <constraint firstItem="gNE-Cd-G0e" firstAttribute="top" secondItem="LhN-tE-MLM" secondAttribute="bottom" id="Vut-5H-qVg"/>
@@ -210,6 +212,7 @@
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="66.5" id="Zao-1r-bfk"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="leading" secondItem="dkx-S7-0Rl" secondAttribute="leading" id="dDE-pp-hyh"/>
                             <constraint firstItem="LhN-tE-MLM" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leading" id="gNo-ik-nuo"/>
+                            <constraint firstItem="SXk-Iq-hvQ" firstAttribute="centerY" secondItem="8aW-gt-VtI" secondAttribute="centerY" id="m4Q-xe-2er"/>
                             <constraint firstItem="dkx-S7-0Rl" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="-32" id="sqJ-ul-IIN"/>
                             <constraint firstItem="82q-ZI-2bU" firstAttribute="leading" secondItem="8aW-gt-VtI" secondAttribute="leading" id="u4K-uL-0d0"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="trailing" secondItem="3Xg-9y-NOA" secondAttribute="trailing" id="xCI-1z-jW9"/>
@@ -228,6 +231,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="removeAdsButton" destination="8aW-gt-VtI" id="gfv-C8-2T3"/>
                         <outlet property="roundingTextField" destination="3Xg-9y-NOA" id="ylo-Va-pei"/>
                     </connections>
                 </viewController>

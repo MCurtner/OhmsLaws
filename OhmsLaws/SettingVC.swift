@@ -9,33 +9,40 @@
 import UIKit
 import StoreKit
 
-class SettingVC: UIViewController, UITextFieldDelegate {
+class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
     @IBOutlet weak var roundingTextField: UITextField!
+    @IBOutlet weak var removeAdsButton: UIButton!
     
-    var productIdentifer = Set(["com.matthewcurtner.AdRemovalTest", "com.matthewcurtner.invalidTest"])
+    let productIdentifiers = Set(["com.matthewcurtner.OhmsLaws.AdRemoval","com.matthewcurtner.OhmsLaws.Test"])
     var product: SKProduct?
     var productsArray: [SKProduct] = []
     
+    var showAds: Bool = true
     var roundingDigit: Int!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         roundingTextField.delegate = self
         
+        //Register class with SKPaymentTransactionObserver delegate
+        SKPaymentQueue.default().add(self)
+        
+        requestProductData()
+        
         // Load the user defaults
         readUserDefaults()
         roundingTextField.text = "\(roundingDigit!)"
         
-        // Re
-        //requestProductData()
+        removeAdsButton.isEnabled = false
         
-        // Register with delegate
-        // SKPaymentQueue.default().add(self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        
+        // Close the SKPayment queue
+        SKPaymentQueue.default().remove(self)
         
         // Remove the keyboard when the view will
         // be dismissed.
@@ -64,6 +71,7 @@ class SettingVC: UIViewController, UITextFieldDelegate {
     func readUserDefaults() {
         let defaults = UserDefaults.standard
         roundingDigit = defaults.integer(forKey: "RoundTo")
+        showAds = defaults.bool(forKey: "Show Ads")
     }
     
     /// Set the User/Default values for rounding decimal
@@ -87,88 +95,91 @@ class SettingVC: UIViewController, UITextFieldDelegate {
     
     /// Restore Purchases
     @IBAction func removeAdsBtnWasPressed(_ sender: UIButton) {
-        let payment = SKPayment(product: productsArray[0])
+        let payment = SKPayment(product: self.productsArray[0])
         SKPaymentQueue.default().add(payment)
     }
-    
+
     /// Restore Purchases
     @IBAction func restorePurchases(_ sender: UIButton) {
-        SKPaymentQueue.default().add(self)
-        SKPaymentQueue.default().restoreCompletedTransactions()
+      
     }
-}
-
-extension SettingVC: SKProductsRequestDelegate, SKPaymentTransactionObserver {
     
-    /// Determine if the users device has In-App Purchases enabled,
-    /// and if so, start the request for available purchases.  
-    /// If IAP is not enabled, display message to user.
+    // MARK: - IAP
+    ///
     func requestProductData() {
+        // Check if the user can make a payment
         if SKPaymentQueue.canMakePayments() {
-            print("Success")
-            let request = SKProductsRequest(productIdentifiers: self.productIdentifer)
+            let request = SKProductsRequest(productIdentifiers: productIdentifiers)
             request.delegate = self
             request.start()
         } else {
-            // Show Alert stating IAP are not enabled.
-            let alert = UIAlertController(title: "In-App Purchases Not Enabled",
-                                          message: "Please enable In App Purchases in Settings",
-                                          preferredStyle: .alert)
-            
-            // Add Action 'Settings' to open settings
-            alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (alertAction) in
-                alert.dismiss(animated: true, completion: nil)
-                
-                let url: URL? = URL(fileURLWithPath: UIApplicationOpenSettingsURLString)
-                if url != nil {
-                    UIApplication.shared.openURL(url!)
-                }
-            }))
-            
-            // Add Action 'OK' to dismiss alert
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
-                alert.dismiss(animated: true, completion: nil)
-            }))
+            displayAlert()
         }
     }
     
+    func displayAlert() {
+        let alert = UIAlertController(title: "In App Purchases disabled.",
+                                      message: "Please enable In App Purchases in Settings.",
+                                      preferredStyle: .alert)
+        
+        // Add 'Settings' button action
+        // Will open settings app if possible
+        alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (alertAction) in
+            alert.dismiss(animated: true, completion: nil)
+            
+            let url = URL(string: UIApplicationOpenSettingsURLString)
+            if url != nil {
+                UIApplication.shared.openURL(url!)
+            }
+        }))
+        
+        // Add 'OK' button action
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+    }
+    
+    func enableButton(button: UIButton) {
+        button.isEnabled = true
+    }
     
     /// SKProductsRequestDelegate Method
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        // Retrieve the response of products
-        var products = response.products
+        let products = response.products
         
-        // Loop through and store each product in the
-        // productsArray.
         if products.count != 0 {
             for i in 0 ..< products.count {
-                self.product = products[i] as SKProduct
-                self.productsArray.append(product!)
+                self.product = products[i]
+                self.productsArray.append(self.product!)
             }
         } else {
-            print("No Products Found")
+            print("No products found")
         }
         
-        // Store any invalid product identifiers
-        let prod = response.invalidProductIdentifiers
+        // Enable Buttons is product array contains
+        // product identifiers
+        if self.productsArray.count != 0 {
+            enableButton(button: removeAdsButton)
+        }
         
-        // Print out the list of invalid identifiers
-        for product in prod {
-            print("\(product) was not found")
+        let invalidProducts = response.invalidProductIdentifiers
+        
+        for item in invalidProducts {
+            print("Product not found: \(item)")
         }
     }
+    
 
-    /// Transaction of payment
+    // Ensure payments has been made for the removal of ads
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        for transaction in transactions as [SKPaymentTransaction] {
+        for transaction in transactions {
             switch transaction.transactionState {
             case .purchased:
-                print("Transaction Approved")
-                print("Product ID: \(transaction.payment.productIdentifier)")
+                print("Transaction Approved for : \(transaction.payment.productIdentifier)")
                 self.deliverProduct(transaction: transaction)
                 SKPaymentQueue.default().finishTransaction(transaction)
             case .failed:
-                print("Transaction Failed")
+                print("Transacation Failed")
                 SKPaymentQueue.default().finishTransaction(transaction)
             default:
                 break
@@ -176,22 +187,15 @@ extension SettingVC: SKProductsRequestDelegate, SKPaymentTransactionObserver {
         }
     }
     
+    // Deliver the functionality paid for: Remove Ads
     func deliverProduct(transaction: SKPaymentTransaction) {
-        if transaction.payment.productIdentifier == "com.matthewcurtner.AdRemovalTest" {
-            print("Non-Consumable Product Purchased")
-            // Unlock Feature
+        if transaction.payment.productIdentifier == "com.matthewcurtner.OhmsLaws.AdRemoval" {
+            let defaults = UserDefaults.standard
+            showAds = false
+            defaults.set(false, forKey: "Show Ads")
         }
     }
-
-    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        print("Transactions Restored")
-        for transaction: SKPaymentTransaction in queue.transactions {
-            if transaction.payment.productIdentifier == "com.matthewcurtner.AdRemovalTest" {
-                print("Non-Consumable Product Purchased")
-                // Unlock Feature
-                
-            }
-        }
-    }
+    
+    
+    
 }
-

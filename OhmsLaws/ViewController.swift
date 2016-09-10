@@ -19,6 +19,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     // Allowing for user defined rounding
     var roundingNum: Int!
     
+    var showAds: Bool = true
+    
     // Array to store the last 2 active textfield tag numbers
     // Initally set to [-1, -1]
     var lastUsedArray: [Int] = [-1, -1]
@@ -34,9 +36,6 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         resistanceTextField.delegate = self
         powerTextField.delegate = self
     
-        // Display adMob Banner
-        displayBanner()
-    
         // Read the default values
         readUserValues()
     }
@@ -44,6 +43,9 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         readUserValues()
+        
+        // Display adMob Banner
+        displayBanner()
     }
     
     /// Set the UIStatusBarStyle to display the light color
@@ -56,19 +58,20 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
         let defaults = UserDefaults.standard
         
         if defaults.object(forKey: "RoundTo") == nil {
-            //print("Key was nil Setting Default Rounding Number")
             defaults.set(4, forKey: "RoundTo")
         }
-        if defaults.object(forKey: "ActiveColor") == nil {
-            //print("Setting Default Active Color")
-            defaults.setColor(value: UIColor.red, forKey: "ActiveColor")
+        if defaults.object(forKey: "Show Ads") == nil {
+            defaults.set(true, forKey: "Show Ads")
         }
     }
     
     /// Read the User/Default values and set the roundingNum value
     func readUserValues() {
-         let defaults = UserDefaults.standard
+        let defaults = UserDefaults.standard
         roundingNum = defaults.integer(forKey: "RoundTo")
+        showAds = defaults.bool(forKey: "Show Ads")
+        
+        print("Show Ads?: \(showAds)")
     }
     
     // MARK: - Reset Button
@@ -102,12 +105,17 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     /// Setup and display the Banner Ad from AdMob.
     func displayBanner() {
         let request = GADRequest();
-        request.testDevices = [kGADSimulatorID]
-        
-        bannerView.delegate = self
-        bannerView.adUnitID = "ca-app-pub-9801328113033460/3521494233"
-        bannerView.rootViewController = self
-        bannerView.load(request)
+        if showAds == true {
+            request.testDevices = [kGADSimulatorID]
+            
+            bannerView.delegate = self
+            bannerView.adUnitID = "ca-app-pub-9801328113033460/3521494233"
+            bannerView.rootViewController = self
+            bannerView.load(request)
+        } else {
+            bannerView.load(nil)
+            bannerView.isHidden = true
+        }
     }
     
     // MARK: - UITextField Delegate Methods
@@ -388,21 +396,5 @@ extension Double {
     }
 }
 
-// MARK: - Extension to store and retrieve UIColor in UserDefaults
-extension UserDefaults {
-    func setColor(value: UIColor!, forKey: String) {
-        guard let value = value else {
-            UserDefaults().set(nil, forKey:  forKey)
-            return
-        }
-        UserDefaults().set(NSKeyedArchiver.archivedData(withRootObject: value), forKey: forKey)
-    }
-    func colorForKey(key:String) -> UIColor? {
-        guard let data = UserDefaults().data(forKey: key),
-            let color = NSKeyedUnarchiver.unarchiveObject(with: data) as? UIColor
-            else { return nil }
-        return color
-    }
-}
 
 
