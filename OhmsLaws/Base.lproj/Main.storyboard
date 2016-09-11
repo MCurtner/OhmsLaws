@@ -192,7 +192,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Restore Purchases"/>
+                                <state key="normal" title="Restore Purchase"/>
                                 <connections>
                                     <action selector="restorePurchases:" destination="Kqz-bW-2ji" eventType="touchUpInside" id="mnm-g8-tWS"/>
                                 </connections>
@@ -201,21 +201,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LhN-tE-MLM" firstAttribute="top" secondItem="d2e-VS-rcv" secondAttribute="top" id="3wp-Sp-APQ"/>
                             <constraint firstItem="dkx-S7-0Rl" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="5DO-4I-mq1"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="top" secondItem="dkx-S7-0Rl" secondAttribute="bottom" constant="63" id="7iB-Cx-Guj"/>
-                            <constraint firstItem="SXk-Iq-hvQ" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leadingMargin" constant="60" id="KcX-RY-V4f"/>
-                            <constraint firstAttribute="trailing" secondItem="LhN-tE-MLM" secondAttribute="trailing" id="MZC-dt-pkr"/>
+                            <constraint firstAttribute="trailing" secondItem="LhN-tE-MLM" secondAttribute="trailing" id="Lan-hn-I4N"/>
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="top" secondItem="XTO-g4-3pp" secondAttribute="bottom" constant="63" id="PPl-dc-K1D"/>
-                            <constraint firstItem="gNE-Cd-G0e" firstAttribute="top" secondItem="LhN-tE-MLM" secondAttribute="bottom" id="Vut-5H-qVg"/>
                             <constraint firstItem="82q-ZI-2bU" firstAttribute="top" secondItem="8aW-gt-VtI" secondAttribute="bottom" constant="15" id="Wyv-lC-Uvg"/>
                             <constraint firstItem="3Xg-9y-NOA" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="66.5" id="Zao-1r-bfk"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="leading" secondItem="dkx-S7-0Rl" secondAttribute="leading" id="dDE-pp-hyh"/>
-                            <constraint firstItem="LhN-tE-MLM" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leading" id="gNo-ik-nuo"/>
-                            <constraint firstItem="SXk-Iq-hvQ" firstAttribute="centerY" secondItem="8aW-gt-VtI" secondAttribute="centerY" id="m4Q-xe-2er"/>
+                            <constraint firstItem="gNE-Cd-G0e" firstAttribute="top" secondItem="LhN-tE-MLM" secondAttribute="bottom" id="g09-G8-dw3"/>
+                            <constraint firstItem="LhN-tE-MLM" firstAttribute="leading" secondItem="d2e-VS-rcv" secondAttribute="leading" id="ia8-fJ-fpZ"/>
+                            <constraint firstItem="8aW-gt-VtI" firstAttribute="leading" secondItem="SXk-Iq-hvQ" secondAttribute="trailing" constant="-29" id="r7r-1B-Yfv"/>
                             <constraint firstItem="dkx-S7-0Rl" firstAttribute="centerX" secondItem="d2e-VS-rcv" secondAttribute="centerX" constant="-32" id="sqJ-ul-IIN"/>
                             <constraint firstItem="82q-ZI-2bU" firstAttribute="leading" secondItem="8aW-gt-VtI" secondAttribute="leading" id="u4K-uL-0d0"/>
                             <constraint firstItem="8aW-gt-VtI" firstAttribute="trailing" secondItem="3Xg-9y-NOA" secondAttribute="trailing" id="xCI-1z-jW9"/>
+                            <constraint firstItem="LhN-tE-MLM" firstAttribute="top" secondItem="d2e-VS-rcv" secondAttribute="top" id="yqt-cW-f3g"/>
+                            <constraint firstItem="SXk-Iq-hvQ" firstAttribute="centerY" secondItem="8aW-gt-VtI" secondAttribute="centerY" id="zHv-ew-PxG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="B78-Z4-vk7">
@@ -231,6 +231,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="removeAdActivity" destination="SXk-Iq-hvQ" id="IMP-Cc-l3j"/>
                         <outlet property="removeAdsButton" destination="8aW-gt-VtI" id="gfv-C8-2T3"/>
                         <outlet property="roundingTextField" destination="3Xg-9y-NOA" id="ylo-Va-pei"/>
                     </connections>
@@ -239,10 +240,10 @@
             </objects>
             <point key="canvasLocation" x="2753.6231884057975" y="-2.4456521739130435"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--NavigationVC-->
         <scene sceneID="VTA-5G-2Yg">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q7r-jb-QOu" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="q7r-jb-QOu" customClass="NavigationVC" customModule="OhmsLaws" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="cMN-kv-OCa">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

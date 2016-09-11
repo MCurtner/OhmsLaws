@@ -171,7 +171,8 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     /// - parameter textField: Current selected UITextField
     func colorizeActiveFields(textField: UITextField) {
         textField.layer.borderWidth = 2.0
-        textField.layer.borderColor = UIColor.red.cgColor
+        textField.layer.borderColor = UIColor.orange.cgColor
+        textField.layer.cornerRadius = 5
     }
     
     /// Set the border color and width for the inactive fields
@@ -387,7 +388,7 @@ class ViewController: UIViewController, GADBannerViewDelegate, UITextFieldDelega
     }
 }
 
-// MARK: - Round 'Double' value to desired decimal place
+// MARK: - Round 'Double' value to specified decimal place
 extension Double {
     /// Rounds the double to decimal places value
     func roundToPlaces(places:Int) -> Double {

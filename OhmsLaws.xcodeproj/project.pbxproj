@@ -18,6 +18,7 @@
 		BA435EA41D7AF9E3009F23C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */; };
 		BA6DE0431D7C61380034EFB5 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA6DE0421D7C61380034EFB5 /* SettingVC.swift */; };
 		BA6DE0451D7D8D5D0034EFB5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA6DE0441D7D8D5D0034EFB5 /* StoreKit.framework */; };
+		BAA75FA41D85C862008F5E6E /* NavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAA75FA31D85C862008F5E6E /* NavigationVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		BA435EA31D7AF9E3009F23C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		BA6DE0421D7C61380034EFB5 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
 		BA6DE0441D7D8D5D0034EFB5 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		BAA75FA31D85C862008F5E6E /* NavigationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				BA435E8A1D7AF7C9009F23C4 /* Assets.xcassets */,
 				BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */,
 				BA435E851D7AF7C9009F23C4 /* ViewController.swift */,
+				BAA75FA31D85C862008F5E6E /* NavigationVC.swift */,
 				BA6DE0421D7C61380034EFB5 /* SettingVC.swift */,
 				BA435E871D7AF7C9009F23C4 /* Main.storyboard */,
 				BA435E8C1D7AF7C9009F23C4 /* LaunchScreen.storyboard */,
@@ -350,6 +353,7 @@
 			files = (
 				BA435E861D7AF7C9009F23C4 /* ViewController.swift in Sources */,
 				BA6DE0431D7C61380034EFB5 /* SettingVC.swift in Sources */,
+				BAA75FA41D85C862008F5E6E /* NavigationVC.swift in Sources */,
 				BA435E841D7AF7C9009F23C4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

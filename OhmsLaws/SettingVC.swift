@@ -13,6 +13,7 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
     
     @IBOutlet weak var roundingTextField: UITextField!
     @IBOutlet weak var removeAdsButton: UIButton!
+    @IBOutlet weak var removeAdActivity: UIActivityIndicatorView!
     
     let productIdentifiers = Set(["com.matthewcurtner.OhmsLaws.AdRemoval","com.matthewcurtner.OhmsLaws.Test"])
     var product: SKProduct?
@@ -35,7 +36,7 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
         roundingTextField.text = "\(roundingDigit!)"
         
         removeAdsButton.isEnabled = false
-        
+        removeAdActivity.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -95,17 +96,19 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
     
     /// Restore Purchases
     @IBAction func removeAdsBtnWasPressed(_ sender: UIButton) {
+        displayActivityView()
         let payment = SKPayment(product: self.productsArray[0])
         SKPaymentQueue.default().add(payment)
     }
 
     /// Restore Purchases
     @IBAction func restorePurchases(_ sender: UIButton) {
-      
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().restoreCompletedTransactions()
     }
-    
+
     // MARK: - IAP
-    ///
+    /// Check if the user can make a payment
     func requestProductData() {
         // Check if the user can make a payment
         if SKPaymentQueue.canMakePayments() {
@@ -117,30 +120,40 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
         }
     }
     
+    
+    /// Display UIAlertController if the app restrcits IAP.
+    /// Two actions: 'Settings', 'OK' will be made available
     func displayAlert() {
         let alert = UIAlertController(title: "In App Purchases disabled.",
-                                      message: "Please enable In App Purchases in Settings.",
+                                      message: "Please enable In-App Purchases in Settings - General - Restrictions.",
                                       preferredStyle: .alert)
-        
-        // Add 'Settings' button action
-        // Will open settings app if possible
-        alert.addAction(UIAlertAction(title: "Settings", style: .default, handler: { (alertAction) in
-            alert.dismiss(animated: true, completion: nil)
-            
-            let url = URL(string: UIApplicationOpenSettingsURLString)
-            if url != nil {
-                UIApplication.shared.openURL(url!)
-            }
-        }))
         
         // Add 'OK' button action
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
             alert.dismiss(animated: true, completion: nil)
         }))
+        
+        self.present(alert, animated: true, completion: nil)
     }
     
+    
+    /// Enable a UIButton
+    ///
+    /// - parameter button: UIButton
     func enableButton(button: UIButton) {
         button.isEnabled = true
+    }
+    
+    /// Show and start animating the UIActivityView
+    func displayActivityView() {
+        removeAdActivity.isHidden = false
+        removeAdActivity.startAnimating()
+    }
+    
+    /// Stop animating and hide the UIActivityView
+    func removeActivityView() {
+        removeAdActivity.stopAnimating()
+        removeAdActivity.isHidden = true
     }
     
     /// SKProductsRequestDelegate Method
@@ -170,7 +183,11 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
     }
     
 
-    // Ensure payments has been made for the removal of ads
+    /// Ensure payment has been made for the removal of ads
+    /// Handle purchased and failed attempts
+    ///
+    /// - parameter queue:        SKPaymentQueue
+    /// - parameter transactions: [SKPaymentTransaction]
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
@@ -178,24 +195,44 @@ class SettingVC: UIViewController, UITextFieldDelegate, SKProductsRequestDelegat
                 print("Transaction Approved for : \(transaction.payment.productIdentifier)")
                 self.deliverProduct(transaction: transaction)
                 SKPaymentQueue.default().finishTransaction(transaction)
+                removeActivityView()
             case .failed:
                 print("Transacation Failed")
                 SKPaymentQueue.default().finishTransaction(transaction)
+                removeActivityView()
             default:
                 break
             }
         }
     }
     
-    // Deliver the functionality paid for: Remove Ads
+    /// Deliver the functionality paid for: Remove Ads
+    ///
+    /// - parameter transaction: SKPaymentTransaction
     func deliverProduct(transaction: SKPaymentTransaction) {
         if transaction.payment.productIdentifier == "com.matthewcurtner.OhmsLaws.AdRemoval" {
             let defaults = UserDefaults.standard
             showAds = false
-            defaults.set(false, forKey: "Show Ads")
+            defaults.set(showAds, forKey: "Show Ads")
         }
     }
     
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        for transaction in queue.transactions {
+            if transaction.payment.productIdentifier == "com.matthewcurtner.OhmsLaws.AdRemoval" {
+                let defaults = UserDefaults.standard
+                showAds = false
+                defaults.set(showAds, forKey: "Show Ads")
+            }
+        }
+        
+        let alert = UIAlertController(title: "Success", message: "Your purchase has been restored", preferredStyle: .alert)
+        // Add 'OK' button action
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (alertAction) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
     
-    
+        self.present(alert, animated: true) {
+        }
+    }
 }
