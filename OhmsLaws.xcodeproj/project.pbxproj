@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1534F76C54AA3C58D1779166 /* Pods_OhmsLawsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */; };
-		177FC832CE46DF29751EB098 /* Pods_OhmsLaws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */; };
 		BA435E841D7AF7C9009F23C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA435E831D7AF7C9009F23C4 /* AppDelegate.swift */; };
 		BA435E861D7AF7C9009F23C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA435E851D7AF7C9009F23C4 /* ViewController.swift */; };
 		BA435E891D7AF7C9009F23C4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA435E871D7AF7C9009F23C4 /* Main.storyboard */; };
@@ -33,9 +31,7 @@
 
 /* Begin PBXFileReference section */
 		08BB9343574E5C5D53702C9F /* Pods-OhmsLawsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLawsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests.release.xcconfig"; sourceTree = "<group>"; };
-		24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmsLawsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		378D28AC3129A5108A7C15C0 /* Pods-OhmsLaws.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLaws.release.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws.release.xcconfig"; sourceTree = "<group>"; };
-		5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OhmsLaws.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70331A537EE0B4184EC3773F /* Pods-OhmsLawsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLawsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLawsTests/Pods-OhmsLawsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		88140E1C1A3F82DEEF9C0BFC /* Pods-OhmsLaws.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OhmsLaws.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OhmsLaws/Pods-OhmsLaws.debug.xcconfig"; sourceTree = "<group>"; };
 		BA435E801D7AF7C9009F23C4 /* OhmsLaws.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OhmsLaws.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				177FC832CE46DF29751EB098 /* Pods_OhmsLaws.framework in Frameworks */,
 				BA6DE0451D7D8D5D0034EFB5 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -68,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1534F76C54AA3C58D1779166 /* Pods_OhmsLawsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,8 +73,6 @@
 			isa = PBXGroup;
 			children = (
 				BA6DE0441D7D8D5D0034EFB5 /* StoreKit.framework */,
-				5769D4116C4E4796DA4C7C6C /* Pods_OhmsLaws.framework */,
-				24448BCAF4F831B199C0B38E /* Pods_OhmsLawsTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -501,10 +493,11 @@
 				INFOPLIST_FILE = OhmsLaws/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewcurtner.OhmsLaws;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -517,10 +510,11 @@
 				INFOPLIST_FILE = OhmsLaws/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.matthewcurtner.OhmsLaws;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
